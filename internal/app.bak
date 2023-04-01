@@ -54,84 +54,11 @@ func Run() {
 		&Artifact{},
 		&BuildConfig{},
 		&BuildInfo{},
-	)
-
-	var users = []User{
-		{Name: "gaopan", FullName: "高攀", Gender: "男", Location: "北京", Job: "运维工程师", Email: "gaopan@data100.com"},
-		{Name: "admin", FullName: "admin", Gender: "admin", Location: "anywhere", Job: "admin", Email: "admin@data100.com"},
-		{Name: "yuchao", FullName: "于超", Gender: "男", Location: "北京", Job: "Java工程师", Email: "yuchao@data100.com"},
-		{Name: "dingdongcun", FullName: "丁东存", Gender: "男", Location: "北京", Job: "Web前端工程师", Email: "dingdongcun@data100.com"},
-		{Name: "hansongshan", FullName: "韩松杉", Gender: "男", Location: "北京", Job: "Web前端工程师", Email: "hansongshan@data100.com"},
-		{Name: "hanxuan", FullName: "韩璇", Gender: "女", Location: "北京", Job: "测试工程师", Email: "hanxuan@data100.com"},
-		{Name: "kuyadong", FullName: "库亚东", Gender: "男", Location: "北京", Job: "iOS工程师", Email: "kuyadong@data100.com"},
-		{Name: "liming", FullName: "李明", Gender: "男", Location: "成都", Job: "Web前端工程师", Email: "liming@data100.com"},
-		{Name: "lingcong", FullName: "凌聪", Gender: "男", Location: "北京", Job: "Java工程师", Email: "lingcong@data100.com"},
-		{Name: "liubaoyun", FullName: "刘宝云", Gender: "女", Location: "北京", Job: "Web前端工程师", Email: "liubaoyun@data100.com"},
-		{Name: "liugang", FullName: "刘刚", Gender: "男", Location: "北京", Job: "Java工程师", Email: "liugang2@data100.com"},
-		{Name: "liumingjun", FullName: "刘明君", Gender: "男", Location: "北京", Job: "PHP工程师", Email: "liumingjun@data100.com"},
-		{Name: "liuyang", FullName: "刘洋", Gender: "男", Location: "北京", Job: "Java工程师", Email: "liuyang@data100.com"},
-		{Name: "liweiyang", FullName: "李维阳", Gender: "男", Location: "北京", Job: "Java工程师", Email: "liweiyang@data100.com"},
-		{Name: "liwenbo", FullName: "李文博", Gender: "男", Location: "北京", Job: "PHP工程师", Email: "liwenbo@data100.com"},
-		{Name: "mayuemei", FullName: "马月梅", Gender: "女", Location: "北京", Job: "测试工程师", Email: "mayuemei@data100.com"},
-		{Name: "shendongxu", FullName: "申东旭", Gender: "男", Location: "北京", Job: "Android工程师", Email: "shendongxu@data100.com"},
-		{Name: "shijipeng", FullName: "史继鹏", Gender: "男", Location: "北京", Job: "测试工程师", Email: "shijipeng@data100.com"},
-		{Name: "shipizhan", FullName: "时丕站", Gender: "男", Location: "北京", Job: "PHP工程师", Email: "shipizhan@data100.com"},
-		{Name: "wangmin", FullName: "王敏", Gender: "女", Location: "成都", Job: "测试工程师", Email: "wangmin@data100.com"},
-		{Name: "wangyu", FullName: "王瑜", Gender: "男", Location: "成都", Job: "Web前端工程师", Email: "wangyu@data100.com"},
-		{Name: "xianlei", FullName: "鲜磊", Gender: "男", Location: "成都", Job: "Java工程师", Email: "xianlei@data100.com"},
-		{Name: "xibinwei", FullName: "席彬玮", Gender: "男", Location: "北京", Job: "PHP工程师", Email: "xibinwei@data100.com"},
-		{Name: "yangweijing", FullName: "杨伟静", Gender: "女", Location: "北京", Job: "Web前端工程师", Email: "yangweijing@data100.com"},
-		{Name: "yaoman", FullName: "姚满", Gender: "男", Location: "北京", Job: "Java工程师", Email: "yaoman@data100.com"},
-		{Name: "yinzhenghao", FullName: "尹正皓", Gender: "男", Location: "成都", Job: "Java工程师", Email: "yinzhenghao@data100.com"},
-		{Name: "zhangyibo", FullName: "张一博", Gender: "男", Location: "北京", Job: "Java工程师", Email: "zhangyibo@data100.com"},
-		{Name: "zhulingyu", FullName: "朱凌宇", Gender: "男", Location: "北京", Job: "Java工程师", Email: "zhulingyu@data100.com"},
 	}
-
 	for _, value := range users {
 		db.Select("user_name", "full_name", "gender", "location", "job", "email_address").Create(&value)
 	}
 
-	var groups = []Group{
-		{Name: "cem", Intro: "CEMPro"},
-		{Name: "prw", Intro: "拼任务"},
-		{Name: "wjyb", Intro: "问卷100"},
-		{Name: "kbt", Intro: "刊播通"},
-		{Name: "surveycool", Intro: "SurveyCool"},
-	}
-
-	var projects = []Project{
-		{Name: "cem", Intro: "CEMPro"},
-		{Name: "prw", Intro: "拼任务"},
-		{Name: "wjyb", Intro: "问卷100"},
-		{Name: "kbt", Intro: "刊播通"},
-		{Name: "surveycool", Intro: "SurveyCool"},
-	}
-
-	var envs = []Env{
-		{Name: "dev", Intro: "开发环境"},
-		{Name: "qa", Intro: "测试环境"},
-		{Name: "test", Intro: "测试环境"},
-		{Name: "staging", Intro: "预发布环境"},
-		{Name: "pre", Intro: "预发布环境"},
-		{Name: "prod", Intro: "生产环境"},
-		{Name: "local", Intro: "本地开发环境"},
-	}
-
-	var items = []Item{
-		{Name: "cem-analysis", Category: "microservices", Language: "Java", Tier: "backend", Intro: "文本分析"},
-		{Name: "cem-answer", Category: "microservices", Language: "Java", Tier: "backend", Intro: "用户问答题"},
-		{Name: "cem-auth", Category: "microservices", Language: "Java", Tier: "backend", Intro: "认证中心"},
-		{Name: "cem-console", Category: "microservices", Language: "Java", Tier: "backend", Intro: "管理控制台"},
-		{Name: "cem-crontab", Category: "microservices", Language: "Java", Tier: "backend", Intro: "定时任务"},
-		{Name: "cem-dashboard", Category: "microservices", Language: "Java", Tier: "backend", Intro: "仪表盘"},
-		{Name: "cem-gateway", Category: "microservices", Language: "Java", Tier: "backend", Intro: "接口网关"},
-		{Name: "cem-message", Category: "microservices", Language: "Java", Tier: "backend", Intro: "消息通知"},
-		{Name: "cem-put", Category: "microservices", Language: "Java", Tier: "backend", Intro: "问卷投放"},
-		{Name: "cem-sftp", Category: "microservices", Language: "Java", Tier: "backend", Intro: "图片文件上传"},
-		{Name: "cem-survey", Category: "microservices", Language: "Java", Tier: "backend", Intro: "问卷管理"},
-		{Name: "cem-system", Category: "microservices", Language: "Java", Tier: "backend", Intro: "系统服务"},
-		{Name: "cem-web", Category: "microservices", Language: "Java", Tier: "backend", Intro: "网页端服务"},
-	}
 
 	for _, value := range items {
 		db.Select("item", "category", "language", "tier", "intro").Create(&value)
